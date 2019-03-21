@@ -1,0 +1,344 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.09.0 ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 1.1 */
+
+c : 30;
+
+v_r : [v, 0.001, 0.99];
+
+betha : v ;
+
+alpha : %pi / 6;
+
+f1 : cos(alpha);
+f2 : f1 - betha;
+f3 : betha * f1;
+f4 : 1 - f3;
+f5 : f2 / f4;
+
+fs : [betha, f2, f4, f5];
+
+xt : [xtics, 0, 0.1, 1];
+
+yt : [ytics, -1, 0.1, 1];
+
+opt_y : [gnuplot_preamble, "set yrange[-1:1]"];
+
+wxplot2d(fs, v_r, grid2d, xt, yt, opt_y);
+plot2d(fs, v_r, grid2d, xt, yt, opt_y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 1.1 */
+
+c : 30;
+e : 5;
+
+U : 10;
+
+R_r : [R, 1, 10];
+
+f1 : (e * c^2) * (R * U - ) / (U * R)^3
+f2 : f1 - betha;
+f3 : betha * f1;
+f4 : 1 - f3;
+f5 : f2 / f4;
+
+fs : [betha, f2, f4, f5];
+
+xt : [xtics, 0, 0.1, 1];
+
+yt : [ytics, -1, 0.1, 1];
+
+opt_y : [gnuplot_preamble, "set yrange[-1:1]"];
+
+wxplot2d(fs, v_r, grid2d, xt, yt, opt_y);
+plot2d(fs, v_r, grid2d, xt, yt, opt_y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 2 */
+
+load("eigen");
+load(vect);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+U : matrix([2,3]);
+R : matrix([5,6]);
+R1 : matrix([[5], [6]]);
+
+inprod(U,R);
+
+/* ref http://d.hatena.ne.jp/Levi/20090313/1236917570 */
+
+U ~ R1;
+express(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+U . R;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+a : [1,2,3];
+b :  [5,6,7];
+
+a . b;
+
+a ~ b;
+express(%);
+
+div(a);
+express(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+express(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec 2 : 1 */
+kill(R1);
+
+c : 30;
+e : 5;
+
+U : [1,2,3];
+
+R1_r : [R1, 1, 5];
+
+R : [R1, 5,6];
+
+f0 : R . U;
+
+f1 : e * c^2 * (R ~ U) / (R . U) ^ 3;
+
+fs : [f0];
+
+xt : [xtics, 0, 1, 10];
+
+yt : [ytics, -10, 1, 10];
+
+opt_y : [gnuplot_preamble, "set yrange[-10:10]"];
+
+wxplot2d(fs, R1_r, grid2d, xt, yt, opt_y);
+plot2d(fs, R1_r, grid2d, xt, yt, opt_y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 2 : 2 */
+kill(R1);
+
+U : [1,2,3];
+
+R1_r : [R1, 1, 5];
+
+R1 : 5;
+
+R : [R1, 5,6];
+
+print("R=5", [1,2,3] . R);
+
+R1 : 6;
+
+R : [R1, 5,6];
+
+print("R=5", [1,2,3] . R);
+
+kill(R1);
+R1_r : [R1, 1, 50];
+R : [R1, 5,6];
+
+f0 : U . R;
+f1 : 1 / (f0^3);
+
+fs : [f1];
+
+xt : [xtics, 0, 1, 10];
+
+yt : [ytics, -10, 1, 10];
+
+opt_y : [gnuplot_preamble, "set yrange[-1:1]"];
+
+wxplot2d(fs, R1_r, grid2d, xt, yt, opt_y);
+plot2d(fs, R1_r, grid2d, xt, yt, opt_y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 2 : 3 */
+kill(R1);
+
+U : [1,2,3];
+
+/*R1_r : [R1, 1, 5];*/
+
+R1 : 5;
+
+R : [R1, 5,6];
+
+f0 : U . R;
+f1 : 1 / f0^3;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+c;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 2 : 4 */
+kill(R1);
+
+U : [1,2,3];
+
+/*R1_r : [R1, 1, 5];*/
+
+R1 : 5;
+
+R : [R1, 5,6];
+
+f0 : U . R;
+f1 : 1 / f0^3;
+f2 : e * c^2 * f1;
+
+float(%);
+
+f3 : U ~ R;
+/*express(%)[0];*/
+express(%);
+
+/*f3[0];*/
+
+e;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+vec_len(a) := print(a[0]);
+
+f3;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+vec_len([7,8,9]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+express(f3);
+f4 : express(f3);
+f4;
+
+/* ref http://www.math.kobe-u.ac.jp/~taka/2007/knx/maxima.pdf "ベクトルの大き" */
+sqrt(f4.f4);
+f3;
+U;
+sqrt(U.U);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f3;
+sqrt(f3.f3);
+express(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 2 : 5 */
+kill(R1);
+
+U : [1,2,3];
+
+/*R1_r : [R1, 1, 5];*/
+
+R1 : 2;
+
+R : [R1, 5,6];
+
+f0 : U . R;
+f1 : 1 / f0^3;
+f2 : e * c^2 * f1;
+f3 : U ~ R;
+f4 : express(f3);
+
+f5 : sqrt(f4.f4);
+
+f6 : e * c^2;
+
+f7 : f6 * f5 / f0^3;
+float(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 2 : 6 */
+kill(R1);
+
+U : [1,2,3];
+
+R1_r : [R1, 1, 100];
+
+/*R1 : 2;*/
+
+R : [R1, 1,6];
+/*R : [R1, 5,6];*/
+/*R : [5, R1,6];*/
+/*R : [5,6, R1];*/
+
+f0 : U . R;
+f1 : 1 / f0^3;
+f2 : e * c^2 * f1;
+f3 : U ~ R;
+f4 : express(f3);
+
+f5 : sqrt(f4.f4);
+
+f6 : e * c^2;
+
+f7 : f6 * f5 / f0^3;
+/*float(%);*/
+
+fs : [f7];
+
+xt : [xtics, 0, 10, 100];
+
+yt : [ytics, -10, 1, 10];
+
+opt_y : [gnuplot_preamble, "set yrange[-10:10]"];
+
+wxplot2d(fs, R1_r, grid2d, xt, yt, opt_y);
+plot2d(fs, R1_r, grid2d, xt, yt, opt_y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+U;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+U[1];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f4;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+x : [f,g,h];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+y : [j,k,l];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+x ~ y;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+express(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ident(3);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
