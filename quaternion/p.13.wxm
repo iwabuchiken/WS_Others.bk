@@ -1,0 +1,223 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 14.09.0 ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 1.1 */
+
+c : 30;
+
+theta_r : [theta, 0, %pi];
+
+r : sqrt(cos(theta)^2 + sin(theta)^2);
+
+f1 : r * (cos(theta) + sin(theta) * %i);
+
+/*fs : [f1];*/
+fs : [r];
+
+opt_y : [gnuplot_preamble, "set yrange[-1:1]"];
+
+wxplot2d(fs, theta_r, grid2d);
+
+plot2d(fs, theta_r, grid2d);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 1.2 : 3d plotting */
+
+theta_r : [theta, 0, %pi];
+
+n_r : [n, 1, 2];
+
+r : sqrt(cos(n * theta)^2 + sin(n * theta)^2);
+
+/*f1 : r * (cos(theta) + sin(theta) * %i);*/
+
+/*fs : [f1];*/
+fs : [r];
+
+opt_z : [gnuplot_preamble, "set zrange[0.999:1.001]"];
+
+opt_grid : [grid, 50, 50];
+
+/* ref : plot3d : https://maxima.osdn.jp/maxima_12.html */
+
+/*wxplot3d(r, theta_r, n_r, opt_grid, opt_z);*/
+wxplot3d(r, theta_r, n_r, opt_grid);
+
+/*plot3d(r, theta_r, n_r, opt_grid, opt_z);*/
+plot3d(r, theta_r, n_r, opt_grid);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 1.3 : r */
+
+theta_r : [theta, 0, %pi / 2];
+
+n_r : [n, 1, 1.1];
+
+r : sqrt(cos(n * theta)^2 + sin(n * theta)^2);
+
+/*f1 : r * (cos(theta) + sin(theta) * %i);*/
+
+/*fs : [f1];*/
+fs : [r];
+
+opt_z : [gnuplot_preamble, "set zrange[0.999:1.001]"];
+
+opt_grid : [grid, 50, 50];
+
+/* ref : plot3d : https://maxima.osdn.jp/maxima_12.html */
+
+/*wxplot3d(r, theta_r, n_r, opt_grid, opt_z);*/
+wxplot3d(r, theta_r, n_r, opt_grid);
+
+/*plot3d(r, theta_r, n_r, opt_grid, opt_z);*/
+plot3d(r, theta_r, n_r, opt_grid);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 1.4 : cos^2 + sin^2 */
+
+theta_r : [theta, 0, %pi * 2];
+
+/*n_r : [n, 1, 1.1];*/
+n : 1;
+
+r : sqrt(cos(n * theta)^2 + sin(n * theta)^2);
+
+/*f1 : r * (cos(theta) + sin(theta) * %i);*/
+
+/*fs : [f1];*/
+f1 : cos(n * theta);
+f2 : sin(n * theta);
+f3 : cos(n * theta)^2;
+f4 : sin(n * theta)^2;
+
+f5 : f3 + f4;
+f6 : sqrt(f5);
+
+fs : [f1, f2, f3, f4, f5, f6];
+
+opt_z : [gnuplot_preamble, "set zrange[0.999:1.001]"];
+
+opt_grid : [grid, 50, 50];
+
+wxplot2d(fs, theta_r, grid2d);
+plot2d(fs, theta_r, grid2d);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 2.1 : discrete */
+/* ref https://maxima.osdn.jp/maxima_12.html "離散集合のプロット" */
+
+theta_r : [theta, 0, %pi * 2];
+
+/*n_r : [n, 1, 1.1];*/
+n : 1;
+
+r : sqrt(cos(n * theta)^2 + sin(n * theta)^2);
+
+/*f1 : r * (cos(theta) + sin(theta) * %i);*/
+
+/*fs : [f1];*/
+f1 : cos(n * theta);
+f2 : sin(n * theta);
+f3 : cos(n * theta)^2;
+f4 : sin(n * theta)^2;
+
+f5 : f3 + f4;
+f6 : sqrt(f5);
+
+fs : [f1, f2, f3, f4, f5, f6];
+
+opt_z : [gnuplot_preamble, "set zrange[0.999:1.001]"];
+
+opt_grid : [grid, 50, 50];
+
+plot2d ([discrete, makelist(i*%pi, i, 1, 5),
+                            [0.6, 0.9, 0.2, 1.3, 1]]);
+
+wxplot2d ([discrete, makelist(i*%pi, i, 1, 5),
+                            [0.6, 0.9, 0.2, 1.3, 1]]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 2.2 : parametric */
+/* ref https://maxima.osdn.jp/maxima_12.html "離散集合のプロット" */
+
+theta_r : [theta, 0, %pi * 2];
+
+t_r : [t, -1 * %pi, 1 * %pi];
+
+x_lim : [x, -sqrt(2), sqrt(2)];
+y_lim : [y, -sqrt(2), sqrt(2)];
+
+/*n_r : [n, 1, 1.1];*/
+n : 1;
+
+r : sqrt(cos(n * theta)^2 + sin(n * theta)^2);
+
+/*f1 : r * (cos(theta) + sin(theta) * %i);*/
+
+/*fs : [f1];*/
+f1 : cos(n * t);
+f2 : sin(n * t);
+
+f3 : f1^2;
+f4 : f2^2;
+
+f5 : f3 + f4;
+f6 : sqrt(f5);
+
+fs : [f1, f2, f3, f4, f5, f6];
+
+opt_z : [gnuplot_preamble, "set zrange[0.999:1.001]"];
+
+opt_grid : [grid, 50, 50];
+
+/*plot2d ([discrete, f1, f2], theta_r);*/
+/*plot2d ([parametric, f1, f2, [t, -1 * %pi, 1 * %pi]], [x, -sqrt(2), sqrt(2)], [y, -sqrt(2), sqrt(2)], same_xy);*/
+
+wxplot2d ([parametric, f3, f4, t_r], x_lim, y_lim, same_xy);
+plot2d ([parametric, f3, f4, t_r], x_lim, y_lim, same_xy);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+/* sec : 2.3 : parametric */
+/* ref https://maxima.osdn.jp/maxima_12.html "離散集合のプロット" */
+
+/*theta_r : [theta, 0, %pi * 2];*/
+/*theta : %pi * (1/2);*/
+theta : %pi * (1/4);
+
+
+/*t_r : [t, -1 * %pi, 1 * %pi];*/
+t_r : [t, 1, 2];
+
+x_lim : [x, -sqrt(2), sqrt(2)];
+y_lim : [y, -sqrt(2), sqrt(2)];
+
+/*n_r : [n, 1, 1.1];*/
+n : 1;
+
+r : sqrt(cos(n * theta)^2 + sin(n * theta)^2);
+
+/*f1 : r * (cos(theta) + sin(theta) * %i);*/
+
+/*fs : [f1];*/
+f1 : cos(theta * t);
+f2 : sin(theta * t);
+
+f3 : f1^2;
+f4 : f2^2;
+
+f5 : f3 + f4;
+f6 : sqrt(f5);
+
+wxplot2d ([parametric, f1, f2, t_r], x_lim, y_lim, same_xy);
+plot2d ([parametric, f1, f2, t_r], x_lim, y_lim, same_xy);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
